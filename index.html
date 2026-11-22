@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>myITS Portal - Lost & Found</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">ITS</div>
+        <div><strong>myITS Portal</strong><small>Institut Teknologi Sepuluh Nopember</small></div>
+      </div>
+      <div class="sidebar-label">MENU UTAMA</div>
+      <nav class="side-nav" aria-label="Navigasi utama">
+        <button class="nav-link active" data-page="home"><span>⌂</span> Beranda</button>
+        <button class="nav-link" data-page="announcements"><span>▤</span> Pengumuman</button>
+        <button class="nav-link" data-page="admin"><span>＋</span> Kelola Laporan</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="demo-note"><strong>Prototype MVP</strong><p>Data demonstrasi tersimpan pada browser ini.</p></div>
+        <small>© 2026 Institut Teknologi Sepuluh Nopember</small>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumb">myITS Portal <span>/</span> <strong id="breadcrumb-current">Beranda</strong></div>
+        <div class="profile"><div class="avatar">A</div><span>Pengguna Demo</span></div>
+      </header>
+
+      <section id="page-home" class="page active">
+        <div class="welcome">
+          <div>
+            <p class="eyebrow">PORTAL INFORMASI KAMPUS</p>
+            <h1>Selamat datang di myITS Portal</h1>
+            <p class="muted">Akses informasi dan pengumuman terbaru seputar lingkungan ITS.</p>
+          </div>
+          <div class="welcome-icon">ITS</div>
+        </div>
+        <div class="section-heading">
+          <div><h2>Pengumuman Lost &amp; Found</h2><p class="muted">Informasi barang hilang dan ditemukan di lingkungan ITS.</p></div>
+          <button class="button button-outline" data-go="announcements">Lihat semua</button>
+        </div>
+        <div id="home-announcements" class="announcement-grid"></div>
+      </section>
+
+      <section id="page-announcements" class="page">
+        <div class="page-heading">
+          <div><p class="eyebrow">INFORMASI KAMPUS</p><h1>Pengumuman</h1><p class="muted">Daftar laporan barang hilang dan ditemukan.</p></div>
+        </div>
+        <div class="filter-bar">
+          <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Cari nama barang atau lokasi..."></label>
+          <select id="category-filter" aria-label="Filter kategori">
+            <option value="">Semua kategori</option><option value="Kehilangan">Kehilangan</option><option value="Temuan">Temuan</option>
+          </select>
+        </div>
+        <div id="announcement-list" class="announcement-grid"></div>
+        <p id="empty-state" class="empty-state hidden">Belum ada laporan yang sesuai dengan pencarian.</p>
+      </section>
+
+      <section id="page-admin" class="page">
+        <div class="page-heading">
+          <div><p class="eyebrow">PENGELOLAAN INFORMASI</p><h1>Tambah Laporan</h1><p class="muted">Masukkan informasi barang hilang atau ditemukan.</p></div>
+        </div>
+        <div class="form-card">
+          <div class="form-intro"><div class="form-icon">＋</div><div><h2>Formulir Lost &amp; Found</h2><p class="muted">Kolom bertanda * wajib diisi.</p></div></div>
+          <form id="report-form">
+            <div class="form-grid">
+              <label>Jenis laporan <span>*</span><select id="category" required><option value="">Pilih jenis laporan</option><option value="Kehilangan">Barang hilang</option><option value="Temuan">Barang ditemukan</option></select></label>
+              <label>Nama barang <span>*</span><input id="item-name" maxlength="80" required placeholder="Contoh: Botol minum"></label>
+              <label>Lokasi <span>*</span><input id="location" maxlength="120" required placeholder="Contoh: Perpustakaan ITS"></label>
+              <label>Tanggal kejadian <span>*</span><input id="incident-date" type="date" required></label>
+              <label class="full-width">Ciri-ciri / deskripsi <span>*</span><textarea id="description" rows="4" maxlength="500" required placeholder="Jelaskan warna, merek, kondisi, atau ciri khusus barang..."></textarea></label>
+              <label class="full-width">URL foto (opsional)<input id="image-url" type="url" placeholder="https://contoh.com/foto-barang.jpg"><small>Gunakan tautan gambar publik. Foto tidak diunggah ke server.</small></label>
+            </div>
+            <div id="form-message" class="form-message hidden" role="status"></div>
+            <div class="form-actions"><button type="reset" class="button button-outline">Kosongkan</button><button type="submit" class="button button-primary">Simpan Laporan</button></div>
+          </form>
+        </div>
+      </section>
+
+      <section id="page-detail" class="page">
+        <button class="back-link" id="back-to-list">← Kembali ke Pengumuman</button>
+        <div id="detail-content"></div>
+      </section>
+
+      <footer class="footer">Prototype akademik Q3.04 · Bukan bagian dari sistem resmi myITS Portal.</footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
