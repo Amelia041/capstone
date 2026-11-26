@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Prototipe tidak boleh muncul di mesin pencari -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Prototipe Design Thinking (bukan situs resmi ITS): penyebaran informasi Lost &amp; Found di portal mahasiswa.">
+    <title>Prototipe myITS Portal – Lost &amp; Found</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <noscript>Aktifkan JavaScript untuk menjalankan prototipe ini.</noscript>
+
+    <!-- Halaman login (simulasi) -->
+    <main id="login-page" class="login" hidden>
+        <p class="login__flag">Prototipe Design Thinking · Bukan situs resmi ITS</p>
+        <div class="login__content">
+            <div class="login__brand">
+                <img src="assets/icons/favicon.svg" alt="" width="44" height="44">
+                <span>myITS Portal</span>
+            </div>
+            <h1>Portal Layanan Digital Institut Teknologi Sepuluh Nopember</h1>
+            <button type="button" class="login__button" id="login-button">Masuk dengan myITS</button>
+            <p class="login__note">Login ini hanya simulasi prototipe. Tidak ada autentikasi, dan tidak ada username atau password yang diminta.</p>
+        </div>
+    </main>
+
+    <!-- Kerangka portal -->
+    <div id="app" class="app" hidden>
+        <header class="topbar">
+            <a class="topbar__brand" href="#/beranda"><strong>myITS</strong> Portal</a>
+            <div class="topbar__right">
+                <span class="proto-badge">Prototipe · Data simulasi</span>
+                <a class="avatar" href="#/akun" aria-label="Buka halaman Akun" data-icon="user"></a>
+            </div>
+        </header>
+
+        <nav class="sidebar" aria-label="Navigasi utama">
+            <a href="#/beranda" data-nav="beranda"><span data-icon="home"></span>Beranda</a>
+            <a href="#/akun" data-nav="akun"><span data-icon="user"></span>Akun</a>
+            <a href="#/pengumuman" data-nav="pengumuman"><span data-icon="megaphone"></span>Pengumuman</a>
+            <a href="#/pengaturan" data-nav="pengaturan"><span data-icon="gear"></span>Pengaturan Web</a>
+        </nav>
+
+        <div class="main">
+            <main id="view" tabindex="-1"></main>
+            <footer class="footer" id="footer-note"></footer>
+        </div>
+    </div>
+
+    <!-- Popup (diisi oleh app.js) -->
+    <div id="modal-root"></div>
+
+    <!-- Urutan script penting: konfigurasi -> data -> tampilan -->
+    <script src="config.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
